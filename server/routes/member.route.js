@@ -33,7 +33,8 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-router.post('/', (req, res) => {
+router.post( '/', ( req, res ) => {
+  console.log('hit')
   const post = new Member({
     firstName: req.body.firstName,
     lastName: req.body.lastName,
