@@ -1,5 +1,4 @@
 const mongoose = require( 'mongoose' );
-
 const schemaMembers = mongoose.Schema( {
     firstName: {
         type: String,

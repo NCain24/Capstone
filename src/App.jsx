@@ -1,15 +1,21 @@
-// import './App.css';
-import { Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
-import Home from './components/Home';
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
 import Login from './components/Login';
+import Header from './components/Header'
+import Home from './components/Home';
 import Profile from './components/Profile';
-
+import useToken from './components/useToken';
 
 function App() {
+  const { token, setToken } = useToken();
+
+  if (!token) {
+    return <Login setToken={setToken} />;
+  }
+
   return (
     <div>
-      <Header />
+        <Header/>
       <Routes>
         <Route index element={<Login />} />
         <Route path="/home" element={<Home />} />
