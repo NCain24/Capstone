@@ -1,26 +1,40 @@
-import React from 'react';
-import { Route, Routes } from 'react-router-dom';
-import Login from './components/Login';
-import Header from './components/Header'
-import Home from './components/Home';
-import Profile from './components/Profile';
-import useToken from './components/useToken';
+import { useContext } from 'react';
+import { Navigate, Route, Routes } from 'react-router-dom';
+import AuthContext from './store/authContext';
+import Auth from './components/Auth';
+import Header from './components/Header';
 
 function App() {
-  const { token, setToken } = useToken();
-
-  if (!token) {
-    return <Login setToken={setToken} />;
-  }
+  const authCtx = useContext(AuthContext);
 
   return (
     <div>
+      { !authCtx.token ? (
+        <Auth />
+      ) : (
+          <div>
         <Header/>
       <Routes>
-        <Route index element={<Login />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/profile" element={<Profile />} />
-      </Routes>
+        <Route
+          path="/"
+          element={<Navigate to="/home" />}
+        />
+        <Route
+          path="/auth"
+          element={<Navigate to="/" />}
+        />
+        <Route
+          path="/profile"
+          element={<Navigate to="/auth" />}
+        />
+        <Route
+          path="*"
+          element={<Navigate to="/" />}
+        />
+            </Routes>
+          </div>
+      )}
+      
     </div>
   );
 }

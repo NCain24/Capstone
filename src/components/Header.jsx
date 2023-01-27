@@ -1,12 +1,16 @@
 import { NavLink } from "react-router-dom"
 
-const Header = () => {
+const Header = ({firstName}) => {
   return (
-    <nav>
+    <div>
+      <div><h1>Welcome back, {firstName}!</h1></div>
+      <div><nav>
       <NavLink to='/home'>Home</NavLink>
       <NavLink to='/profile'>Profile</NavLink>
-      <NavLink to='/'>Logout</NavLink>
-    </nav>
+      <NavLink to='/auth'>Logout</NavLink>
+      </nav></div>
+    
+    </div>
   )
 }
 
