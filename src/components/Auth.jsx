@@ -25,7 +25,12 @@ const Auth = () => {
           password,
         })
         .then((res) => {
-          authCtx.login(res.data.token, res.data.exp, res.data.userId);
+          authCtx.login(
+            res.data.token,
+            res.data.exp,
+            res.data.userId,
+            res.data.username
+          );
         })
         .catch(() => alert('Something went wrong.'));
     } else {
@@ -35,7 +40,12 @@ const Auth = () => {
           password,
         })
         .then((res) => {
-          authCtx.login(res.data.token, res.data.exp, res.data.userId);
+          authCtx.login(
+            res.data.token,
+            res.data.exp,
+            res.data.userId,
+            res.data.username
+          );
         })
         .catch(() => alert('That user does not exist.'));
     }

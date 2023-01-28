@@ -40,45 +40,61 @@ const getLocalData = () => {
 
 export const AuthContextProvider = (props) => {
   const localData = getLocalData();
+  console.log(localData);
 
   let initialToken;
   let initialId;
+  let initialUsername;
   if (localData) {
     initialToken = localData.token;
     initialId = localData.userId;
+    initialUsername = localData.username;
   }
 
   const [token, setToken] = useState(initialToken);
   const [userId, setUserId] = useState(initialId);
+  const [username, setUsername] = useState(initialUsername);
+  
+  const addProfile = (
+    firstName,
+    lastName,
+    email,
+    phoneNumber,
+    address,
+    birthday,
+    occupation
+  ) => { };
+  
+  const login = (token, exp, userId, username) => {
+    console.log(username);
+    setToken(token);
+    setUserId(userId);
+    setUsername(username);
+    localStorage.setItem('token', token);
+    localStorage.setItem('exp', exp);
+    localStorage.setItem('userId', userId);
+    localStorage.setItem('username', username);
 
+    const remainingTime = calculateRemainingTime(exp);
+    const logoutTimer = setTimeout(logout, remainingTime);
+  };
   const logout = useCallback(() => {
     setToken(null);
     setUserId(null);
+    setUsername(null);
     localStorage.clear();
 
     if (logoutTimer) {
       clearTimeout(logoutTimer);
     }
-    console.log('logging out');
   }, []);
-
-  const login = (token, exp, userId) => {
-    setToken(token);
-    setUserId(userId);
-    localStorage.setItem('token', token);
-    localStorage.setItem('exp', exp);
-    localStorage.setItem('userId', userId);
-    // localStorage.setItem('username', username)
-    
-    // const remainingTime = calculateRemainingTime(exp);
-    // const logoutTimer = setTimeout(logout, remainingTime);
-  };
-
   const contextValue = {
     token,
     login,
     logout,
+    addProfile,
     userId,
+    username,
   };
 
   return (
