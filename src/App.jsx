@@ -7,10 +7,10 @@ import Home from './components/Home';
 import Profile from './components/Profile';
 
 function App() {
-  const authCtx = useContext( AuthContext );
+  const authCtx = useContext(AuthContext);
 
   return (
-    <div>
+    <div className="text-3xl font-bold flex-col items-center">
       {!authCtx.token ? (
         <Auth />
       ) : (

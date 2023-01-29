@@ -35,7 +35,8 @@ const Profile = () => {
           res.data.address,
           res.data.birthday,
           res.data.occupation
-        )
+          )
+          console.log(res.data.firstName)
       });
   };
 
