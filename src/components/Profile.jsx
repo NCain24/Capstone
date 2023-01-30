@@ -11,14 +11,19 @@ const Profile = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [address, setAddress] = useState('');
   const [birthday, setBirthday] = useState('');
-  const [occupation, setOccupation] = useState('');
+  const [ occupation, setOccupation ] = useState( '' );
+  const [profile, setProfile] = useState([])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     await axios
       .post(
-        'http://localhost:5432/profile',
+        'http://localhost:5432/profile', {
+          headers: {
+            authorization: authCtx.token,
+          },
+        },
         {
           firstName,
           lastName,
@@ -28,25 +33,19 @@ const Profile = () => {
           birthday,
           occupation,
         },
-        {
-          headers: {
-            Authorization: `Bearer ${authCtx?.token}`,
-          },
-        }
+        
       )
       .then((res) => {
-        console.log(res.data);
+        console.log( res.data );
+        setProfile(res.data)
       });
   };
 
   return (
     <div>
-      <div className="bg-magenta-500">
-        <h1 className='bg-magenta-500'>Profile Page</h1>
-      </div>
-      <div>
+      <div className='flex justify-center p-10'>
         <form
-          className="flex flex-col align-center items-center"
+          className="flex flex-col align-center items-center border-2 p-20 m-10"
           onSubmit={handleSubmit}
         >
           <label className="bg-magenta-500">First Name:</label>
@@ -57,7 +56,7 @@ const Profile = () => {
           />
           <label>Last Name:</label>
           <input
-            className="border"
+            className="border-2"
             type="text"
             onChange={(e) => setLastName(e.target.value)}
           />
@@ -86,7 +85,7 @@ const Profile = () => {
             onChange={(e) => setBirthday(e.target.value)}
           />
           <label>Occupation:</label>
-          <input type="text" onChange={(e) => setOccupation(e.target.value)} />
+          <input className='border-2' type="text" onChange={(e) => setOccupation(e.target.value)} />
           <button type="submit">Submit</button>
         </form>
       </div>

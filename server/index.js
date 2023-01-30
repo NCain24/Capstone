@@ -29,7 +29,7 @@ const { isAuthenticated } = require('./middleware/isAuthenticated');
 app.post('/register', register);
 app.post('/login', login);
 
-app.get( '/viewprofile/:userId', isAuthenticated, viewProfile );
+app.get( '/viewprofile/:id', isAuthenticated, viewProfile );
 app.get('/allprofiles', isAuthenticated, getProfiles)
 app.post('/profile', isAuthenticated, addProfile);
 app.put('/profile/:id', isAuthenticated, editProfile);

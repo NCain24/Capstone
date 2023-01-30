@@ -1,20 +1,15 @@
-import { useContext, useEffect, useState } from 'react';
-import AuthContext from '../store/authContext';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const MemberCard = () => {
-  const authCtx = useContext(AuthContext);
-  const [profile, setProfile] = useState(authCtx.id);
 
-  useEffect(() => {
+  const [displayProfile, setDisplayProfile] = useState([]);
+
+  useEffect( () => {
     axios
-      .get(`http://localhost:5432/profile/${id}`, {
-        headers: {
-          authorization: authCtx.token,
-        },
-      })
+      .get(`http://localhost:5432/viewprofile/:id`)
       .then((res) => {
-        setProfile(res.data);
+        setDisplayProfile(res.data);
       });
   });
 
