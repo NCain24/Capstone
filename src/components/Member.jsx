@@ -31,7 +31,7 @@ const Member = () => {
       <div className="flex justify-center pt-10">
         <form onSubmit={handleSubmit}>
           <input
-            className="border-2"
+            className="border-2 border-black"
             onChange={(e) => setSearchTerm(e.target.value)}
             type="text"
             placeholder="Search"
@@ -50,9 +50,9 @@ const Member = () => {
           })
           .map((member, id) => {
             return (
-              <NavLink to='/profile/:id' key={id}>
-                <div className='flex border-2 p-10'>
-                  <div>{member.firstName} {member.lastName}</div>
+              <NavLink to={`/viewprofile/${id}`} key={id}>
+                <div className='flex border-2 border-black p-10 bg-white'>
+                  <div className='text-xl'>{member.firstName} {member.lastName}</div>
                 </div>
               </NavLink>
             );

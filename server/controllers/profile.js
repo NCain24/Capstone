@@ -46,9 +46,11 @@ module.exports = {
       const { id } = req.params;
       const profile = await Profile.findAll({
         where: { id: +id },
-      });
+      } );
+      console.log(profile)
       res.status(200).send(profile);
-    } catch (error) {
+    } catch ( error ) {
+      console.log(error)
       console.log('Error in view profile controller');
     }
   },

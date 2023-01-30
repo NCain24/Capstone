@@ -1,31 +1,39 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
+import { useParams } from 'react-router-dom';
+import AuthContext from '../store/authContext';
 import axios from 'axios';
 
 const MemberCard = () => {
+  const authCtx = useContext(AuthContext);
 
-  const [displayProfile, setDisplayProfile] = useState([]);
+  const [displayProfile, setDisplayProfile] = useState({});
 
-  useEffect( () => {
+  const { id } = useParams();
+
+  useEffect(() => {
     axios
-      .get(`http://localhost:5432/viewprofile/:id`)
-      .then(() => {
-        setDisplayProfile(displayProfile);
+      .get(`http://localhost:5432/viewprofile/${id}`, {
+        headers: {
+          authorization: authCtx.token,
+        },
+      })
+      .then((res) => {
+        console.log(res.data);
+        setDisplayProfile(res.data[0]);
       });
-  });
+  }, []);
 
-  profile.map((member) => {
-    return (
-      <div className='border'>
-        <div>First Name: {member.firstName}</div>
-        <div>Last Name: {member.lastName}</div>
-        <div>E-Mail: {member.email}</div>
-        <div>Phone Number: {member.phoneNumber}</div>
-        <div>Address: {member.address}</div>
-        <div>Birthday: {member.birthday}</div>
-        <div>Occupation: {member.occupation}</div>
-      </div>
-    );
-  });
+  return (
+    <div>
+      <div>First Name: {displayProfile.firstName}</div>
+      <div>Last Name: {displayProfile.lastName}</div>
+      <div>E-Mail: {displayProfile.email}</div>
+      <div>Phone Number: {displayProfile.phoneNumber}</div>
+      <div>Address: {displayProfile.address}</div>
+      <div>Birthday: {displayProfile.birthday}</div>
+      <div>Occupation: {displayProfile.occupation}</div>
+    </div>
+  );
 };
 
 export default MemberCard;

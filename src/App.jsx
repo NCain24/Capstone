@@ -5,12 +5,13 @@ import Auth from './components/Auth';
 import Header from './components/Header';
 import Home from './components/Home';
 import Profile from './components/Profile';
+import MemberCard from './components/MemberCard';
 
 function App() {
   const authCtx = useContext(AuthContext);
 
   return (
-    <div>
+    <div className='bg-slate-400'>
       {!authCtx.token ? (
         <Auth />
       ) : (
@@ -18,7 +19,8 @@ function App() {
           <Header />
           <Routes>
             <Route index path="/home" element={<Home />} />
-            <Route path="/profile" element={<Profile />} />
+              <Route path="/profile" element={ <Profile /> } />
+              <Route path="/viewprofile/:id" element={<MemberCard/>}/>
           </Routes>
         </div>
       )}
