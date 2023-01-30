@@ -100,15 +100,13 @@ const Auth = () => {
             </div>
 
             <button className="border-solid border-2 m-2">
-              {register ? 'Register' : 'Login'}
+              Register and login
             </button>
           </form>
           <div>
-            <button
-              className="border-solid border-2 m-2"
-              onClick={() => setRegister(!register)}
-            >
-              {register ? 'Login' : 'Register'}
+            
+            <button onClick={() => setRegister(!register)}>
+            <h6>Already have an account?</h6>
             </button>
           </div>
         </div>
@@ -132,7 +130,7 @@ const Auth = () => {
             <button>{register ? 'Register' : 'Login'}</button>
           </form>
           <button onClick={() => setRegister(!register)}>
-            {register ? 'Login' : 'Register'}
+            <h6>Need an account?</h6>
           </button>
         </div>
       )}
