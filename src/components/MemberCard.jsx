@@ -8,14 +8,14 @@ const MemberCard = () => {
   useEffect( () => {
     axios
       .get(`http://localhost:5432/viewprofile/:id`)
-      .then((res) => {
-        setDisplayProfile(res.data);
+      .then(() => {
+        setDisplayProfile(displayProfile);
       });
   });
 
   profile.map((member) => {
     return (
-      <div>
+      <div className='border'>
         <div>First Name: {member.firstName}</div>
         <div>Last Name: {member.lastName}</div>
         <div>E-Mail: {member.email}</div>

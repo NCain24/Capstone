@@ -20,7 +20,7 @@ const Member = () => {
         setAllProfiles(res.data);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [authCtx.token]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
