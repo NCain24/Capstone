@@ -10,7 +10,7 @@ function App() {
   const authCtx = useContext(AuthContext);
 
   return (
-    <div className="text-3xl font-bold flex-col items-center">
+    <div>
       {!authCtx.token ? (
         <Auth />
       ) : (

@@ -13,52 +13,78 @@ const Profile = () => {
   const [birthday, setBirthday] = useState('');
   const [occupation, setOccupation] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    axios
-      .post('http://localhost:5432/profile', {
-        firstName,
-        lastName,
-        email,
-        phoneNumber,
-        address,
-        birthday,
-        occupation,
-      })
-      .then( ( res ) => {
-        authCtx.addProfile(
-          res.data.firstName,
-          res.data.lastName,
-          res.data.email,
-          res.data.phoneNumber,
-          res.data.address,
-          res.data.birthday,
-          res.data.occupation
-          )
-          console.log(res.data.firstName)
+    await axios
+      .post(
+        'http://localhost:5432/profile',
+        {
+          firstName,
+          lastName,
+          email,
+          phoneNumber,
+          address,
+          birthday,
+          occupation,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${authCtx?.token}`,
+          },
+        }
+      )
+      .then((res) => {
+        console.log(res.data);
       });
   };
 
   return (
     <div>
-      <div>
-        <h1>Profile Page</h1>
+      <div className="bg-magenta-500">
+        <h1 className='bg-magenta-500'>Profile Page</h1>
       </div>
       <div>
-        <form onSubmit={handleSubmit}>
-          <label>First Name:</label>
-          <input type="text" onChange={(e) => setFirstName(e.target.value)} />
+        <form
+          className="flex flex-col align-center items-center"
+          onSubmit={handleSubmit}
+        >
+          <label className="bg-magenta-500">First Name:</label>
+          <input
+            className="border-2 bg-magenta-500"
+            type="text"
+            onChange={(e) => setFirstName(e.target.value)}
+          />
           <label>Last Name:</label>
-          <input type="text" onChange={(e) => setLastName(e.target.value)} />
+          <input
+            className="border"
+            type="text"
+            onChange={(e) => setLastName(e.target.value)}
+          />
           <label>E-mail:</label>
-          <input type="text" onChange={(e) => setEmail(e.target.value)} />
+          <input
+            className="border-2"
+            type="text"
+            onChange={(e) => setEmail(e.target.value)}
+          />
           <label>Phone Number:</label>
-          <input type="text" onChange={(e) => setPhoneNumber(e.target.value)} />
+          <input
+            className="border-2"
+            type="text"
+            onChange={(e) => setPhoneNumber(e.target.value)}
+          />
           <label>Address:</label>
-          <input type="text" onChange={(e) => setAddress(e.target.value)} />
+          <input
+            className="border-2"
+            type="text"
+            onChange={(e) => setAddress(e.target.value)}
+          />
           <label>Birthday:</label>
-          <input type="text" onChange={(e) => setBirthday(e.target.value)} />
+          <input
+            className="border-2"
+            type="text"
+            onChange={(e) => setBirthday(e.target.value)}
+          />
           <label>Occupation:</label>
           <input type="text" onChange={(e) => setOccupation(e.target.value)} />
           <button type="submit">Submit</button>

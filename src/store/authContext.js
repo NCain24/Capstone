@@ -54,31 +54,27 @@ export const AuthContextProvider = (props) => {
   const [token, setToken] = useState(initialToken);
   const [userId, setUserId] = useState(initialId);
   const [username, setUsername] = useState(initialUsername);
-  
-  const addProfile = (
-    firstName,
-    lastName,
-    email,
-    phoneNumber,
-    address,
-    birthday,
-    occupation
-  ) => { };
-  
+
   const login = (token, exp, userId, username) => {
-    console.log(username);
+    console.log('logged in');
     setToken(token);
     setUserId(userId);
     setUsername(username);
+
     localStorage.setItem('token', token);
     localStorage.setItem('exp', exp);
     localStorage.setItem('userId', userId);
     localStorage.setItem('username', username);
 
+    [{ token }].map(({ key, value }) => {
+      localStorage.setItem(key, value);
+    });
+
     const remainingTime = calculateRemainingTime(exp);
     const logoutTimer = setTimeout(logout, remainingTime);
   };
   const logout = useCallback(() => {
+    console.log('logged out');
     setToken(null);
     setUserId(null);
     setUsername(null);
@@ -92,7 +88,7 @@ export const AuthContextProvider = (props) => {
     token,
     login,
     logout,
-    addProfile,
+    // addProfile,
     userId,
     username,
   };

@@ -11,18 +11,9 @@ module.exports = {
       res.sendStatus(401);
     }
 
-    // const token = req.headers.authorization.split(' ')[1];
-    // jwt.verify(token, SECRET);
-    try {
-      let token;
-      token = jwt.verify( headerToken, SECRET );
-    } catch (err) {
-      err.statusCode = 500;
-      throw err;
-    }
-
-    // console.log(token);
-
+    const token = req.headers.authorization.split(' ')[1];
+    jwt.verify(token, SECRET);
+    console.log(token)
     if (!token) {
       const error = new Error('Not authenticated.');
       error.statusCode = 401;

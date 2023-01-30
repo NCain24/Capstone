@@ -1,4 +1,4 @@
-
+import Member from './Member'
 
 const Home = () => {
   return (
@@ -6,11 +6,9 @@ const Home = () => {
       <div>
         <h1>Home Screen</h1>
       </div>
+      
       <div>
-        <form>
-          <label>Search for a family member</label>
-          <input type="text" placeholder="Search" />
-        </form>
+        <Member />
       </div>
     </div>
   );

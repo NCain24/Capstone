@@ -14,7 +14,6 @@ const Auth = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-
     if (register) {
       axios
         .post('http://localhost:5432/register', {
@@ -24,7 +23,8 @@ const Auth = () => {
           username,
           password,
         })
-        .then((res) => {
+        .then( ( res ) => {
+          console.log('registered')
           authCtx.login(
             res.data.token,
             res.data.exp,
@@ -39,7 +39,8 @@ const Auth = () => {
           username,
           password,
         })
-        .then((res) => {
+        .then( ( res ) => {
+          console.log(res.data)
           authCtx.login(
             res.data.token,
             res.data.exp,
@@ -52,60 +53,77 @@ const Auth = () => {
   };
 
   return (
-    <main>
-      <div>
-        {register ? <h1>Register to get started</h1> : <h1>Welcome Back!</h1>}
+    <main className="flex-col gap-10 p-6 mx-auto border-solid border-2 border-sky-500 rounded">
+      <div className="text-5xl text-center">
+        {register ? <h1>Register to get started</h1> : <h1>Welcome</h1>}
       </div>
       {register ? (
         <div>
-          <form onSubmit={submitHandler}>
-            <input
-              type="text"
-              placeholder="First Name"
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
-            />
-            <input
-              type="text"
-              placeholder="Last Name"
-              value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
-            />
-            <input
-              type="email"
-              placeholder="E-mail address"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
+          <form className="" onSubmit={submitHandler}>
+            <div className='flex-col w-1 align-center justify-center'>
+              <input
+                className="border-solid border-2 m-2"
+                type="text"
+                placeholder="First Name"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+              />
+              <input
+                className="border-solid border-2 m-2"
+                type="text"
+                placeholder="Last Name"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+              />
+              <input
+                className="border-solid border-2 m-2"
+                type="email"
+                placeholder="E-mail address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
 
-            <input
-              type="text"
-              placeholder="Username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
-            <input
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <button>{register ? 'Register' : 'Login'}</button>
+              <input
+                className="border-solid border-2 m-2"
+                type="text"
+                placeholder="Username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
+              <input
+                className="border-solid border-2 m-2"
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+
+            <button className="border-solid border-2 m-2">
+              {register ? 'Register' : 'Login'}
+            </button>
           </form>
-          <button onClick={() => setRegister(!register)}>
-            {register ? 'Login' : 'Register'}
-          </button>
+          <div>
+            <button
+              className="border-solid border-2 m-2"
+              onClick={() => setRegister(!register)}
+            >
+              {register ? 'Login' : 'Register'}
+            </button>
+          </div>
         </div>
       ) : (
-        <div>
+        <div className='flex-col w-1 align-center justify-center'>
           <form onSubmit={submitHandler}>
             <input
+              className="border-solid border-2 border-sky-500 rounded"
               type="text"
               placeholder="Username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
             <input
+              className="border-solid border-2 border-sky-500 rounded"
               type="password"
               placeholder="Password"
               value={password}
