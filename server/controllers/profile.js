@@ -30,25 +30,26 @@ module.exports = {
     }
   },
 
+  getProfiles: async (req, res) => {
+    try {
+      // const { firstName } = req.params
+      const allProfiles = await Profile.findAll();
+      res.status(200).send(allProfiles);
+    } catch (error) {
+      console.log(error);
+      console.log('Error getting all profiles');
+    }
+  },
+
   viewProfile: async (req, res) => {
     try {
-      const { firstName, lastName } = req.params;
+      const { id } = req.params;
       const profile = await Profile.findAll({
-        where: {
-          firstName: firstName,
-          lastName: lastName,
-        },
-        include: [
-          {
-            model: User,
-            required: true,
-            attributes: ['first name', 'last name']
-          }
-        ]
-      } );
-      res.status(200).send(profile)
-    } catch ( error ) {
-      console.log('Error in view profile controller')
+        where: { id: +id },
+      });
+      res.status(200).send(profile);
+    } catch (error) {
+      console.log('Error in view profile controller');
     }
   },
 

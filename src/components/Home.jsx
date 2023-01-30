@@ -4,10 +4,6 @@ const Home = () => {
   return (
     <div>
       <div>
-        <h1>Home Screen</h1>
-      </div>
-      
-      <div>
         <Member />
       </div>
     </div>

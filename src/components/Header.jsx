@@ -6,16 +6,16 @@ const Header = () => {
   const authCtx = useContext(AuthContext);
 
   return (
-    <div>
+    <div className='flex justify-center'>
       <div>
-        <div>
+        <div className='flex justify-center'>
           <h1>Hello, {authCtx.username}!</h1>
         </div>
         <div>
-          <nav>
+          <nav className='flex justify-center gap-10'>
             <NavLink to="/home">Home</NavLink>
             <NavLink to="/profile">Profile</NavLink>
-            <NavLink to="/auth" onClick={authCtx.logout}>
+            <NavLink to="/login" onClick={authCtx.logout}>
               Logout
             </NavLink>
           </nav>
