@@ -24,7 +24,7 @@ const MemberCard = () => {
   }, [authCtx.token, id]);
 
   return (
-    <div className='flex-col'>
+    <div className='flex flex-col gap-5 items-center text-4xl pt-20'>
       <div>First Name: {displayProfile.firstName}</div>
       <div>Last Name: {displayProfile.lastName}</div>
       <div>E-Mail: {displayProfile.email}</div>

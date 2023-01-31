@@ -11,7 +11,7 @@ function App() {
   const authCtx = useContext(AuthContext);
 
   return (
-    <div className='bg-slate-400'>
+    <div className='bg-slate-300 h-screen'>
       {!authCtx.token ? (
         <Auth />
       ) : (

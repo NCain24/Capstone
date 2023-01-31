@@ -1,9 +1,11 @@
 import { useState, useContext } from 'react';
+import { useForm } from 'react-hook-form';
 import AuthContext from '../store/authContext';
 import axios from 'axios';
 
 const Profile = () => {
-  const authCtx = useContext(AuthContext);
+  const authCtx = useContext( AuthContext );
+  const {reset} = useForm()
 
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -20,11 +22,7 @@ const Profile = () => {
     await axios
       .post(
         'http://localhost:5432/profile',
-        {
-          headers: {
-            authorization: authCtx.token,
-          },
-        },
+
         {
           firstName,
           lastName,
@@ -33,17 +31,24 @@ const Profile = () => {
           address,
           birthday,
           occupation,
+        },
+        {
+          headers: {
+            authorization: authCtx.token,
+          },
         }
       )
-      .then( () => {
-        console.log(profile)
-        setProfile(profile);
+      .then(() => {
+        setProfile( profile );
       });
+      console.log('Form Submitted!');
+      console.log(profile)
+    
   };
 
   return (
-    <div>
-      <div className="flex justify-center p-10">
+    <div className="h-screen bg-slate-300">
+      <div className="flex justify-center">
         <form
           className="flex flex-col align-center items-center border-2 p-20 m-10"
           onSubmit={handleSubmit}
@@ -90,7 +95,7 @@ const Profile = () => {
             type="text"
             onChange={(e) => setOccupation(e.target.value)}
           />
-          <button type="submit">Submit</button>
+          <button type="submit" onClick={() => reset()}>Submit</button>
         </form>
       </div>
     </div>
