@@ -21,7 +21,7 @@ const Profile = () => {
       .post(
         'http://localhost:5432/profile', {
           headers: {
-            authorization: authCtx.token,
+            Authorization: authCtx.token,
           },
         },
         {

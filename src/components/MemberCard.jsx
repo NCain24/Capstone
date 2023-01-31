@@ -24,7 +24,7 @@ const MemberCard = () => {
   }, []);
 
   return (
-    <div>
+    <div className='flex-col'>
       <div>First Name: {displayProfile.firstName}</div>
       <div>Last Name: {displayProfile.lastName}</div>
       <div>E-Mail: {displayProfile.email}</div>

@@ -14,25 +14,29 @@ const Auth = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    if (register) {
+    if ( register ) {
       axios
-        .post('http://localhost:5432/register', {
+        .post( 'http://localhost:5432/register', {
           firstName,
           lastName,
           email,
           username,
           password,
-        })
+        } )
         .then( ( res ) => {
-          console.log('registered')
+          console.log( 'registered' );
           authCtx.login(
             res.data.token,
             res.data.exp,
             res.data.userId,
             res.data.username
           );
+        } )
+        .catch( ( error ) => {
+          console.log( error )
+          alert('Something went wrong')
         })
-        .catch(() => alert('Something went wrong.'));
+          
     } else {
       axios
         .post('http://localhost:5432/login', {

@@ -38,21 +38,20 @@ const Member = () => {
           />
         </form>
       </div>
-      <div className='flex p-10 gap-5 justify-center'>
+      <div className="flex p-10 gap-5 justify-center">
         {allProfiles
           .filter((member) => {
-            return (
-              member.firstName
-                .toLowerCase()
-                .includes(searchTerm.toLowerCase()) ||
-              member.lastName.toLowerCase().includes(searchTerm.toLowerCase())
-            );
+            return member.firstName &&
+              member.firstName.toLowerCase()
+              .includes(searchTerm.toLowerCase());
           })
-          .map((member, id) => {
+          .map((member) => {
             return (
-              <NavLink to={`/viewprofile/${id}`} key={id}>
-                <div className='flex border-2 border-black p-10 bg-white'>
-                  <div className='text-xl'>{member.firstName} {member.lastName}</div>
+              <NavLink to={`/viewprofile/${member.id}`} key={member.id}>
+                <div className="flex border-2 border-black p-10 bg-white">
+                  <div className="text-xl">
+                    {member.firstName} {member.lastName}
+                  </div>
                 </div>
               </NavLink>
             );
