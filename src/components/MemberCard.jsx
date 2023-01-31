@@ -21,7 +21,7 @@ const MemberCard = () => {
         console.log(res.data);
         setDisplayProfile(res.data[0]);
       });
-  }, []);
+  }, [authCtx.token, id]);
 
   return (
     <div className='flex-col'>

@@ -11,17 +11,18 @@ const Profile = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [address, setAddress] = useState('');
   const [birthday, setBirthday] = useState('');
-  const [ occupation, setOccupation ] = useState( '' );
-  const [profile, setProfile] = useState([])
+  const [occupation, setOccupation] = useState('');
+  const [profile, setProfile] = useState([]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     await axios
       .post(
-        'http://localhost:5432/profile', {
+        'http://localhost:5432/profile',
+        {
           headers: {
-            Authorization: authCtx.token,
+            authorization: authCtx.token,
           },
         },
         {
@@ -32,17 +33,17 @@ const Profile = () => {
           address,
           birthday,
           occupation,
-        },
-        
+        }
       )
-      .then(() => {
-        setProfile(profile)
+      .then( () => {
+        console.log(profile)
+        setProfile(profile);
       });
   };
 
   return (
     <div>
-      <div className='flex justify-center p-10'>
+      <div className="flex justify-center p-10">
         <form
           className="flex flex-col align-center items-center border-2 p-20 m-10"
           onSubmit={handleSubmit}
@@ -84,7 +85,11 @@ const Profile = () => {
             onChange={(e) => setBirthday(e.target.value)}
           />
           <label>Occupation:</label>
-          <input className='border-2' type="text" onChange={(e) => setOccupation(e.target.value)} />
+          <input
+            className="border-2"
+            type="text"
+            onChange={(e) => setOccupation(e.target.value)}
+          />
           <button type="submit">Submit</button>
         </form>
       </div>
