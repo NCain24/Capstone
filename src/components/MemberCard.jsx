@@ -24,14 +24,28 @@ const MemberCard = () => {
   }, [authCtx.token, id]);
 
   return (
-    <div className='flex flex-col gap-5 items-center text-4xl pt-20'>
-      <div>First Name: {displayProfile.firstName}</div>
-      <div>Last Name: {displayProfile.lastName}</div>
-      <div>E-Mail: {displayProfile.email}</div>
-      <div>Phone Number: {displayProfile.phoneNumber}</div>
-      <div>Address: {displayProfile.address}</div>
-      <div>Birthday: {displayProfile.birthday}</div>
-      <div>Occupation: {displayProfile.occupation}</div>
+    <div className="flex flex-col gap-5 items-center text-4xl pt-20">
+      <div className="bg-slate-500 rounded-xl p-5 text-white shadow-lg">
+        First Name: {displayProfile.firstName}
+      </div>
+      <div className="bg-slate-500 rounded-xl p-5 text-white shadow-lg">
+        Last Name: {displayProfile.lastName}
+      </div>
+      <div className="bg-slate-500 rounded-xl p-5 text-white shadow-lg">
+        E-Mail: {displayProfile.email}
+      </div>
+      <div className="bg-slate-500 rounded-xl p-5 text-white shadow-lg">
+        Phone Number: {displayProfile.phoneNumber}
+      </div>
+      <div className="bg-slate-500 rounded-xl p-5 text-white shadow-lg">
+        Address: {displayProfile.address}
+      </div>
+      <div className="bg-slate-500 rounded-xl p-5 text-white shadow-lg">
+        Birthday: {displayProfile.birthday}
+      </div>
+      <div className="bg-slate-500 rounded-xl p-5 text-white shadow-lg">
+        Occupation: {displayProfile.occupation}
+      </div>
     </div>
   );
 };

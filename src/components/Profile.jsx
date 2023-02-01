@@ -47,55 +47,56 @@ const Profile = () => {
   };
 
   return (
-    <div className="h-screen bg-slate-300">
+    <div className="flex items-center justify-center  h-screen bg-slate-300">
       <div className="flex justify-center">
         <form
-          className="flex flex-col align-center items-center border-2 p-20 m-10"
+          className="flex flex-col text-3xl bg-slate-200 border-2 p-10 rounded"
           onSubmit={handleSubmit}
-        >
-          <label className="bg-magenta-500">First Name:</label>
+          >
+          <h1>Fill out your profile!</h1>
+          <label>First Name</label>
           <input
-            className="border-2 bg-magenta-500"
+            className="rounded"
             type="text"
             onChange={(e) => setFirstName(e.target.value)}
           />
-          <label>Last Name:</label>
+          <label>Last Name</label>
           <input
-            className="border-2"
+            className="rounded"
             type="text"
             onChange={(e) => setLastName(e.target.value)}
           />
-          <label>E-mail:</label>
+          <label>E-mail</label>
           <input
-            className="border-2"
+            className="rounded"
             type="text"
             onChange={(e) => setEmail(e.target.value)}
           />
-          <label>Phone Number:</label>
+          <label>Phone Number</label>
           <input
-            className="border-2"
+            className="rounded"
             type="text"
             onChange={(e) => setPhoneNumber(e.target.value)}
           />
-          <label>Address:</label>
+          <label>Address</label>
           <input
-            className="border-2"
+            className="rounded"
             type="text"
             onChange={(e) => setAddress(e.target.value)}
           />
-          <label>Birthday:</label>
+          <label>Birthday</label>
           <input
-            className="border-2"
+            className="rounded"
             type="text"
             onChange={(e) => setBirthday(e.target.value)}
           />
-          <label>Occupation:</label>
+          <label>Occupation</label>
           <input
-            className="border-2"
+            className="rounded"
             type="text"
             onChange={(e) => setOccupation(e.target.value)}
           />
-          <button type="submit" onClick={() => reset()}>Submit</button>
+          <button type="submit" className='bg-slate-500 rounded mt-5 px-5 text-white'>Submit</button>
         </form>
       </div>
     </div>

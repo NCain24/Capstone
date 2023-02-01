@@ -27,18 +27,18 @@ const Member = () => {
   };
 
   return (
-    <div className="flex h-screen bg-slate-300">
+    <div className="flex h-screen">
       <div className="flex justify-center pl-10 pt-10">
         <form onSubmit={handleSubmit}>
           <input
-            className="rounded border border-slate-500"
+            className="rounded border border-slate-500 shadow-lg"
             onChange={(e) => setSearchTerm(e.target.value)}
             type="text"
             placeholder="Search"
           />
         </form>
       </div>
-      <div className="flex gap-5 justify-center flex-wrap">
+      <div className="flex gap-5 justify-center flex-wrap overflow-y-auto">
         {allProfiles
           .filter((member) => {
             return (
@@ -50,7 +50,7 @@ const Member = () => {
             return (
               <NavLink to={`/viewprofile/${member.id}`} key={member.id}>
                 <div className="flex justify-center bg-white w-60 h-60 rounded-lg cursor-pointer shadow-xl">
-                  <div className="flex items-center   text-2xl ">
+                  <div className="flex items-center   text-2xl">
                     { member.firstName } { member.lastName }
                   </div>
                 </div>
