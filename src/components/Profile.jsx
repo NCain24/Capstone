@@ -41,62 +41,67 @@ const Profile = () => {
       .then(() => {
         setProfile( profile );
       });
-      console.log('Form Submitted!');
+      alert('Form Submitted!');
       console.log(profile)
     
   };
 
   return (
-    <div className="flex items-center justify-center  h-screen bg-slate-300">
+    <div className="flex items-center justify-center max-h-full bg-slate-300">
       <div className="flex justify-center">
         <form
-          className="flex flex-col text-3xl bg-slate-200 border-2 p-10 rounded"
+          className="flex flex-col text-3xl bg-slate-200 border-2 p-10 rounded text-center"
           onSubmit={handleSubmit}
-          >
-          <h1>Fill out your profile!</h1>
+        >
+          <h1 className="pb-8">Fill out your profile!</h1>
           <label>First Name</label>
           <input
-            className="rounded"
+            className="rounded text-center"
             type="text"
             onChange={(e) => setFirstName(e.target.value)}
           />
           <label>Last Name</label>
           <input
-            className="rounded"
+            className="rounded text-center"
             type="text"
             onChange={(e) => setLastName(e.target.value)}
           />
           <label>E-mail</label>
           <input
-            className="rounded"
+            className="rounded text-center"
             type="text"
             onChange={(e) => setEmail(e.target.value)}
           />
           <label>Phone Number</label>
           <input
-            className="rounded"
+            className="rounded text-center"
             type="text"
             onChange={(e) => setPhoneNumber(e.target.value)}
           />
           <label>Address</label>
           <input
-            className="rounded"
+            className="rounded text-center"
             type="text"
             onChange={(e) => setAddress(e.target.value)}
           />
           <label>Birthday</label>
           <input
-            className="rounded"
+            className="rounded text-center"
             type="text"
             onChange={(e) => setBirthday(e.target.value)}
           />
           <label>Occupation</label>
           <input
-            className="rounded"
+            className="rounded text-center"
             type="text"
             onChange={(e) => setOccupation(e.target.value)}
           />
-          <button type="submit" className='bg-slate-500 rounded mt-5 px-5 text-white'>Submit</button>
+          <button
+            type="submit"
+            className="bg-slate-500 rounded mt-5 px-5 text-white"
+          >
+            Submit
+          </button>
         </form>
       </div>
     </div>

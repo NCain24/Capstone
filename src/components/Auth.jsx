@@ -56,7 +56,7 @@ const Auth = () => {
   };
 
   return (
-    <main className="flex-col h-screen">
+    <main className="flex-col h-screen ">
       <div className="flex-col items-center text-5xl ">
         {register ? (
           <h1 className="text-4xl pb-20">Register to get started</h1>

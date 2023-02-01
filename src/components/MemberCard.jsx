@@ -24,27 +24,48 @@ const MemberCard = () => {
   }, [authCtx.token, id]);
 
   return (
-    <div className="flex flex-col gap-5 items-center text-4xl pt-20">
-      <div className="bg-slate-500 rounded-xl p-5 text-white shadow-lg">
-        First Name: {displayProfile.firstName}
-      </div>
-      <div className="bg-slate-500 rounded-xl p-5 text-white shadow-lg">
-        Last Name: {displayProfile.lastName}
-      </div>
-      <div className="bg-slate-500 rounded-xl p-5 text-white shadow-lg">
-        E-Mail: {displayProfile.email}
-      </div>
-      <div className="bg-slate-500 rounded-xl p-5 text-white shadow-lg">
-        Phone Number: {displayProfile.phoneNumber}
-      </div>
-      <div className="bg-slate-500 rounded-xl p-5 text-white shadow-lg">
-        Address: {displayProfile.address}
-      </div>
-      <div className="bg-slate-500 rounded-xl p-5 text-white shadow-lg">
-        Birthday: {displayProfile.birthday}
-      </div>
-      <div className="bg-slate-500 rounded-xl p-5 text-white shadow-lg">
-        Occupation: {displayProfile.occupation}
+    <div className="flex flex-col items-center pt-20 text-xl ">
+      <div className="bg-slate-500 rounded-xl p-10 px-40 text-white shadow-lg">
+        <h4 className="text-center text-4xl text-black">First Name</h4>
+        <h2 className="text-white transform duration-75 hover:scale-150 text-center">
+          {displayProfile.firstName}
+        </h2>
+        <h4 className="text-center text-4xl text-black">
+          Last Name
+        </h4>
+        <h2 className="text-white transform duration-75 hover:scale-150 text-center">
+          {displayProfile.lastName}
+        </h2>
+        <h4 className="text-center text-4xl text-black">
+          E-Mail
+        </h4>
+        <h2 className="text-white transform duration-75 hover:scale-150 text-center">
+          {displayProfile.email}
+        </h2>
+        <h4 className="text-center text-4xl text-black">
+          Phone Number
+        </h4>
+        <h2 className="text-white transform duration-75 hover:scale-150 text-center">
+          {displayProfile.phoneNumber}
+        </h2>
+        <h4 className="text-center text-4xl text-black">
+          Address
+        </h4>
+        <h2 className="text-white transform duration-75 hover:scale-150 text-center">
+          {displayProfile.address}
+        </h2>
+        <h4 className="text-center text-4xl text-black">
+          Birthday
+        </h4>
+        <h2 className="text-white transform duration-75 hover:scale-150 text-center">
+          {displayProfile.birthday}
+        </h2>
+        <h4 className="text-center text-4xl text-black">
+          Occupation
+        </h4>
+        <h2 className="text-white transform duration-75 hover:scale-150 text-center">
+          {displayProfile.occupation}
+        </h2>
       </div>
     </div>
   );
