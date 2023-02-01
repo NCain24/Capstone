@@ -16,7 +16,6 @@ const Member = () => {
         },
       })
       .then((res) => {
-        console.log(res.data);
         setAllProfiles(res.data);
       })
       .catch((err) => console.log(err));

@@ -11,16 +11,16 @@ function App() {
   const authCtx = useContext(AuthContext);
 
   return (
-    <div className="bg-slate-300 h-screen bg-scroll">
+    <div className='bg-slate-300 h-screen bg-scroll'>
       {!authCtx.token ? (
         <Auth />
       ) : (
         <div>
-          <Header />
+          <Header/>
           <Routes>
             <Route index path="/home" element={<Home />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/viewprofile/:id" element={<MemberCard />} />
+              <Route path="/profile" element={ <Profile /> } />
+              <Route path="/viewprofile/:id" element={<MemberCard/>}/>
           </Routes>
         </div>
       )}

@@ -11,8 +11,9 @@ module.exports = {
         address,
         birthday,
         occupation,
+        userId
       } = req.body;
-      await Profile.create({
+      const newProfile = await Profile.create({
         firstName,
         lastName,
         email,
@@ -20,8 +21,9 @@ module.exports = {
         address,
         birthday,
         occupation,
+        userId
       });
-      res.sendStatus(200);
+      res.status(200).send(newProfile);
     } catch (error) {
       console.log('Error in add profile controller');
       console.log(error);
@@ -51,6 +53,19 @@ module.exports = {
     } catch ( error ) {
       console.log(error)
       console.log('Error in view profile controller');
+    }
+  },
+
+  viewUserProfile: async ( req, res ) => {
+    try {
+      const { userId } = req.params
+      const userProfile = await Profile.findOne( {
+        where: {userId: userId}
+      } )
+      res.status(200).send(userProfile)
+    } catch (error) {
+      res.sendStatus( 400 )
+      console.log(error)
     }
   },
 
