@@ -56,12 +56,12 @@ const Auth = () => {
   };
 
   return (
-    <main className="flex-col h-screen ">
+    <main className="flex-col h-screen">
       <div className="flex-col items-center text-5xl ">
         {register ? (
-          <h1 className="text-4xl pb-20">Register to get started</h1>
+          <h1 className="text-4xl p-10 pb-20">Register to get started</h1>
         ) : (
-          <h1 className="text-7xl pb-20">Welcome</h1>
+          <h1 className="text-7xl p-10 pb-20">Welcome</h1>
         )}
       </div>
       <div className="flex justify-center">
@@ -111,14 +111,16 @@ const Auth = () => {
                   />
                 </div>
                 <div>
-                  <button className=" text-white bg-slate-500 rounded-lg p-3 mt-5">
+                  <button className=" text-white bg-slate-500 rounded-lg p-3 mt-5 hover:animate-pulse">
                     Register and login
                   </button>
                 </div>
               </form>
               <div className="flex text-2xl justify-center pt-5">
                 <button onClick={() => setRegister(!register)}>
-                  <h6>Already have an account?</h6>
+                  <h6 className="hover:scale-110 duration-75">
+                    Already have an account?
+                  </h6>
                 </button>
               </div>
             </div>
@@ -142,13 +144,15 @@ const Auth = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
-                <div className=" text-white bg-slate-500 rounded-lg p-3 mt-5">
-                  <button>{register ? 'Register' : 'Login'}</button>
+                <div className=" text-white bg-slate-500 rounded-lg p-3 mt-5 hover:animate-pulse">
+                  <button className="hover:animate-pulse">Login</button>
                 </div>
               </form>
               <div className="flex text-2xl justify-center pt-5">
                 <button onClick={() => setRegister(!register)}>
-                  <h6>Need an account?</h6>
+                  <h6 className="hover:scale-110 duration-75">
+                    Need an account?
+                  </h6>
                 </button>
               </div>
             </div>

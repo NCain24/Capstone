@@ -26,8 +26,8 @@ const Member = () => {
   };
 
   return (
-    <div className="flex h-screen">
-      <div className="h-5 justify-center pl-10 pt-10">
+    <div className="flex flex-col">
+      <div className="flex justify-center">
         <form className='h-6'  onSubmit={ handleSubmit }>
           <input
             className="rounded border text-xl border-slate-500 shadow-lg"
@@ -37,7 +37,7 @@ const Member = () => {
           />
         </form>
       </div>
-      <div className="flex gap-5 justify-center flex-wrap overflow-y-auto pt-5">
+      <div className="flex gap-5 justify-center flex-wrap overflow-y-auto p-10">
         {allProfiles
           .filter((member) => {
             return (
