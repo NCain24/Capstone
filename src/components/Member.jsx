@@ -1,12 +1,15 @@
 import { useState, useEffect, useContext } from 'react';
 import { NavLink } from 'react-router-dom';
+import ReactLoading from 'react-loading'
 import axios from 'axios';
 import AuthContext from '../store/authContext';
 
 const Member = () => {
-  const authCtx = useContext(AuthContext);
+  const authCtx = useContext( AuthContext );
+  
   const [allProfiles, setAllProfiles] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [ searchTerm, setSearchTerm ] = useState( '' );
+  const [loading, setLoading] = useState(undefined)
 
   useEffect(() => {
     axios
@@ -16,7 +19,8 @@ const Member = () => {
         },
       })
       .then((res) => {
-        setAllProfiles(res.data);
+        setAllProfiles( res.data );
+        setLoading(true)
       })
       .catch((err) => console.log(err));
   }, [authCtx.token]);
@@ -27,6 +31,11 @@ const Member = () => {
 
   return (
     <div className="flex flex-col">
+      
+      { !loading ? (
+        <ReactLoading type={ 'spin' } color={'#03fc4e'} height={ 300 } width={ 300 } />
+      ) : (
+        <>
       <div className="flex justify-center">
         <form className='h-6'  onSubmit={ handleSubmit }>
           <input
@@ -48,15 +57,15 @@ const Member = () => {
           .map((member) => {
             return (
               <NavLink to={`/viewprofile/${member.id}`} key={member.id}>
-                <div className="flex justify-center bg-white w-60 h-60 rounded-lg cursor-pointer object-fill shadow-xl transform hover:scale-110 duration-75">
-                  <div className="flex items-center text-2xl">
+                <div className="hover:bg-gradient-to-r bg-gradient-to-r from-cyan-500 to-blue-500 flex justify-center bg-white w-60 h-60 rounded-lg cursor-pointer object-fill shadow-xl transform hover:scale-110 duration-75">
+                  <div className="flex items-center text-3xl">
                     {member.firstName} {member.lastName}
                   </div>
                 </div>
               </NavLink>
             );
           })}
-      </div>
+      </div> </>)}
     </div>
   );
 };

@@ -11,7 +11,7 @@ module.exports = {
         address,
         birthday,
         occupation,
-        userId
+        userId,
       } = req.body;
       const newProfile = await Profile.create({
         firstName,
@@ -21,7 +21,7 @@ module.exports = {
         address,
         birthday,
         occupation,
-        userId
+        userId,
       });
       res.status(200).send(newProfile);
     } catch (error) {
@@ -47,35 +47,53 @@ module.exports = {
       const { id } = req.params;
       const profile = await Profile.findAll({
         where: { id: +id },
-      } );
-      console.log(profile)
+      });
+      console.log(profile);
       res.status(200).send(profile);
-    } catch ( error ) {
-      console.log(error)
+    } catch (error) {
+      console.log(error);
       console.log('Error in view profile controller');
     }
   },
 
-  viewUserProfile: async ( req, res ) => {
+  viewUserProfile: async (req, res) => {
     try {
-      const { userId } = req.params
-      const userProfile = await Profile.findOne( {
-        where: {userId: userId}
-      } )
-      res.status(200).send(userProfile)
+      const { userId } = req.params;
+      const userProfile = await Profile.findOne({
+        where: { userId: userId },
+      });
+      res.status(200).send(userProfile);
     } catch (error) {
-      res.sendStatus( 400 )
-      console.log(error)
+      res.sendStatus(400);
+      console.log(error);
     }
   },
 
   editProfile: async (req, res) => {
+    console.log('hit edit profile');
     try {
-      const { id } = req.params;
-      await Profile.update({
-        where: { id: +id },
+      const {
+        firstName,
+        lastName,
+        email,
+        phoneNumber,
+        address,
+        birthday,
+        occupation,
+      } = req.body;
+      console.log(req.body);
+      const editUserProfile = await Profile.update({
+        where: {
+          firstName,
+          lastName,
+          email,
+          phoneNumber,
+          address,
+          birthday,
+          occupation
+        },
       });
-      res.sendStatus(200);
+      res.status(200).send(editUserProfile);
     } catch (error) {
       console.log('Error in edit profile controller');
       console.log(error);
@@ -86,8 +104,8 @@ module.exports = {
   deleteProfile: async (req, res) => {
     try {
       const { id } = req.params;
-      await Profile.destroy({ where: { id: +id } });
-      res.sendStatus(200);
+      const deleteUserProfile = await Profile.destroy({ where: { id: +id } });
+      res.status(200).send(deleteUserProfile);
     } catch (error) {
       console.log('Error in delete profile controller');
       console.log(error);
