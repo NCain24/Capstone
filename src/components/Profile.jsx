@@ -134,7 +134,7 @@ const Profile = () => {
           <div className="flex items-center justify-center max-h-full">
             <div className="flex justify-center">
               <form
-                className="flex flex-col text-3xl bg-slate-200 border-2 p-10 rounded text-center"
+                className="flex flex-col text-3xl bg-slate-200 border-2 m-20 p-10 rounded text-center"
                 onSubmit={handleSubmit}
               >
                 <h1 className="pb-8">
@@ -236,7 +236,7 @@ const Profile = () => {
             </h2>
           </div>
           <div>
-            <div className="flex gap-40 text-white">
+            <div className="flex gap-40 text-3xl text-white">
               <button onClick={() => handleStartEdit()}>Edit</button>
               <button onClick={() => deleteProfile()}>Delete</button>
             </div>

@@ -11,7 +11,7 @@ function App() {
   const authCtx = useContext(AuthContext);
 
   return (
-    <div className="bg-slate-500 h-screen bg-scroll">
+    <div className="bg-[url('/src/images/bg.jpg')] h-screen bg-scroll">
       {!authCtx.token ? (
         <Auth />
       ) : (
