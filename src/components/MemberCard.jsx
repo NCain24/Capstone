@@ -25,7 +25,7 @@ const MemberCard = () => {
 
   return (
     <div className="flex flex-col items-center pt-20 text-xl ">
-      <div className="bg-slate-500 rounded-xl p-10 px-40 text-white shadow-lg">
+      <div className="bg-slate-300 rounded-xl p-10 px-40 text-white shadow-lg">
         <h4 className="text-center text-4xl text-black">First Name</h4>
         <h2 className="text-white transform duration-75 hover:scale-150 text-center">
           {displayProfile.firstName}

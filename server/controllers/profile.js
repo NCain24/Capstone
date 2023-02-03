@@ -97,7 +97,11 @@ module.exports = {
           where: { id },
         }
       );
-      res.status(200).send(editUserProfile);
+      console.log(editUserProfile);
+      const profileUpdate = await Profile.findOne( {
+          where: {id}
+        })
+      res.status(200).send(profileUpdate);
     } catch (error) {
       console.log('Error in edit profile controller');
       console.log(error);

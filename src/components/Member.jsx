@@ -30,7 +30,7 @@ const Member = () => {
   };
 
   return (
-    <div className="flex flex-col flex-wrap  max-w-screen-2xl ">
+    <div className="flex flex-col flex-wrap max-w-screen-2xl ">
       
       { !loading ? (
         <ReactLoading type={ 'spin' } color={'#03fc4e'} height={ 300 } width={ 300 } />
@@ -57,8 +57,8 @@ const Member = () => {
           .map((member) => {
             return (
               <NavLink to={`/viewprofile/${member.id}`} key={member.id}>
-                <div className="hover:bg-gradient-to-r bg-gradient-to-r from-cyan-500 to-blue-500 flex justify-center bg-white w-60 h-60 rounded-lg cursor-pointer object-fill shadow-xl transform hover:scale-110 duration-75">
-                  <div className="flex items-center text-3xl">
+                <div className="flex justify-center bg-slate-300 w-60 h-60 rounded-lg cursor-pointer object-fill shadow-xl transform hover:scale-110 duration-75">
+                  <div className="flex items-end text-3xl">
                     {member.firstName} {member.lastName}
                   </div>
                 </div>

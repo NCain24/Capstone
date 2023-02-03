@@ -32,8 +32,10 @@ const Profile = () => {
 
     if (profileExists) {
       updateProfile();
+      
     } else {
       addProfile();
+      setEditProfile(false)
     }
   };
 
@@ -85,7 +87,8 @@ const Profile = () => {
         }
       )
       .then((res) => {
-        setProfile(res.data);
+        setProfile( res.data );
+        setEditProfile(false);
         console.log(res.data);
       });
   };
@@ -128,7 +131,7 @@ const Profile = () => {
     <div>
       {editProfile === true && (
         <div>
-          <div className="flex items-center justify-center max-h-full bg-slate-300">
+          <div className="flex items-center justify-center max-h-full">
             <div className="flex justify-center">
               <form
                 className="flex flex-col text-3xl bg-slate-200 border-2 p-10 rounded text-center"
@@ -201,39 +204,39 @@ const Profile = () => {
       )}
       {editProfile === false && (
         <div className="flex flex-col items-center pt-20 text-xl ">
-          <h1 className="text-3xl">Your Profile</h1>
-          <div className="bg-slate-500 rounded-xl p-10 px-40 text-white shadow-lg">
+          <h1 className="text-3xl text-white">Your Profile</h1>
+          <div className="bg-slate-300 rounded-xl p-10 px-40 shadow-lg">
             <h4 className="text-center text-4xl text-black">First Name</h4>
-            <h2 className="cursor-pointer text-white transform duration-75 hover:scale-150 text-center">
+            <h2 className="cursor-pointer text-black transform duration-75 hover:scale-150 text-center">
               {profile.firstName}
             </h2>
             <h4 className="text-center text-4xl text-black">Last Name</h4>
-            <h2 className="cursor-pointer text-white transform duration-75 hover:scale-150 text-center">
+            <h2 className="cursor-pointer text-black transform duration-75 hover:scale-150 text-center">
               {profile.lastName}
             </h2>
             <h4 className="text-center text-4xl text-black">E-Mail</h4>
-            <h2 className="cursor-pointer text-white transform duration-75 hover:scale-150 text-center">
+            <h2 className="cursor-pointer text-black transform duration-75 hover:scale-150 text-center">
               {profile.email}
             </h2>
             <h4 className="text-center text-4xl text-black">Phone Number</h4>
-            <h2 className="cursor-pointer text-white transform duration-75 hover:scale-150 text-center">
+            <h2 className="cursor-pointer text-black transform duration-75 hover:scale-150 text-center">
               {profile.phoneNumber}
             </h2>
             <h4 className="text-center text-4xl text-black">Address</h4>
-            <h2 className="cursor-pointer text-white transform duration-75 hover:scale-150 text-center">
+            <h2 className="cursor-pointer text-black transform duration-75 hover:scale-150 text-center">
               {profile.address}
             </h2>
             <h4 className="text-center text-4xl text-black">Birthday</h4>
-            <h2 className="cursor-pointer text-white transform duration-75 hover:scale-150 text-center">
+            <h2 className="cursor-pointer text-black transform duration-75 hover:scale-150 text-center">
               {profile.birthday}
             </h2>
             <h4 className="text-center text-4xl text-black">Occupation</h4>
-            <h2 className="cursor-pointer text-white transform duration-75 hover:scale-150 text-center">
+            <h2 className="cursor-pointer text-black transform duration-75 hover:scale-150 text-center">
               {profile.occupation}
             </h2>
           </div>
           <div>
-            <div className="flex gap-40">
+            <div className="flex gap-40 text-white">
               <button onClick={() => handleStartEdit()}>Edit</button>
               <button onClick={() => deleteProfile()}>Delete</button>
             </div>

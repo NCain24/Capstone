@@ -8,10 +8,10 @@ const Header = () => {
   return (
     <div className="flex justify-between px-20 py-5">
       <div className="flex justify-center">
-        <h1 className="text-3xl">Hello, {authCtx.username}!</h1>
+        <h1 className="text-white text-3xl">Hello, {authCtx.username}!</h1>
       </div>
       <div>
-        <nav className="flex justify-center gap-10 text-2xl">
+        <nav className="flex justify-center gap-10 text-2xl text-white">
           <NavLink className={'transform hover:scale-150 duration-75'} to="/home">
             Home
           </NavLink>
