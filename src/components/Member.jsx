@@ -30,7 +30,7 @@ const Member = () => {
   };
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col flex-wrap  max-w-screen-2xl ">
       
       { !loading ? (
         <ReactLoading type={ 'spin' } color={'#03fc4e'} height={ 300 } width={ 300 } />
@@ -46,7 +46,7 @@ const Member = () => {
           />
         </form>
       </div>
-      <div className="flex gap-5 justify-center flex-wrap overflow-y-auto p-10">
+      <div className="flex gap-5 flex-wrap overflow-y-auto p-10">
         {allProfiles
           .filter((member) => {
             return (

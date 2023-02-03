@@ -33,7 +33,7 @@ app.get('/viewprofile/:id', isAuthenticated, viewProfile);
 app.get( '/allprofiles', isAuthenticated, getProfiles );
 app.get('/user/profile/:userId', isAuthenticated, viewUserProfile)
 app.post('/user/profile', isAuthenticated, addProfile);
-app.put('/user/profile/edit/:userId', isAuthenticated, editProfile);
+app.put('/user/profile/edit/:id', isAuthenticated, editProfile);
 app.delete('/user/profile/delete/:id', isAuthenticated, deleteProfile);
 
 sequelize

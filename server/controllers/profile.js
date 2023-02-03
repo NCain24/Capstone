@@ -72,6 +72,7 @@ module.exports = {
   editProfile: async (req, res) => {
     console.log('hit edit profile');
     try {
+      const { id } = req.params;
       const {
         firstName,
         lastName,
@@ -81,18 +82,21 @@ module.exports = {
         birthday,
         occupation,
       } = req.body;
-      console.log(req.body);
-      const editUserProfile = await Profile.update({
-        where: {
+      console.log(req.params);
+      const editUserProfile = await Profile.update(
+        {
           firstName,
           lastName,
           email,
           phoneNumber,
           address,
           birthday,
-          occupation
+          occupation,
         },
-      });
+        {
+          where: { id },
+        }
+      );
       res.status(200).send(editUserProfile);
     } catch (error) {
       console.log('Error in edit profile controller');
