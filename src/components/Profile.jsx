@@ -32,10 +32,9 @@ const Profile = () => {
 
     if (profileExists) {
       updateProfile();
-      
     } else {
       addProfile();
-      setEditProfile(false)
+      setEditProfile(false);
     }
   };
 
@@ -87,7 +86,7 @@ const Profile = () => {
         }
       )
       .then((res) => {
-        setProfile( res.data );
+        setProfile(res.data);
         setEditProfile(false);
         console.log(res.data);
       });
@@ -95,7 +94,7 @@ const Profile = () => {
 
   const deleteProfile = async (id) => {
     await axios
-      .delete(`https://localhost:5432/user/profile/delete/${id}`, {
+      .delete(`http://localhost:5432/user/profile/delete/${id}`, {
         headers: {
           authorization: authCtx.token,
         },
@@ -103,6 +102,7 @@ const Profile = () => {
       .then((res) => {
         console.log(res.data);
         setProfileExists(false);
+        setProfile([]);
       })
       .catch((err) => {
         console.log(err);
@@ -238,7 +238,7 @@ const Profile = () => {
           <div>
             <div className="flex gap-40 text-3xl text-white">
               <button onClick={() => handleStartEdit()}>Edit</button>
-              <button onClick={() => deleteProfile()}>Delete</button>
+              <button onClick={() => deleteProfile(profile.id)}>Delete</button>
             </div>
           </div>
         </div>

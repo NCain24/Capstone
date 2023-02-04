@@ -112,8 +112,8 @@ module.exports = {
   deleteProfile: async (req, res) => {
     try {
       const { id } = req.params;
-      const deleteUserProfile = await Profile.destroy({ where: { id: +id } });
-      res.status(200).send(deleteUserProfile);
+      await Profile.destroy({ where: { id: +id } });
+      res.sendStatus(200);
     } catch (error) {
       console.log('Error in delete profile controller');
       console.log(error);
