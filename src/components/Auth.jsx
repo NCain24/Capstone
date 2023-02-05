@@ -56,12 +56,14 @@ const Auth = () => {
   };
 
   return (
-    <main className="flex-col h-screen">
+    <main className="flex-col h-full">
       <div className="flex-col items-center text-5xl ">
         {register ? (
-          <h1 className="text-4xl p-10 pb-20">Register to get started</h1>
+          <h1 className="text-4xl p-10 pb-20 text-white">
+            Register to get started
+          </h1>
         ) : (
-          <h1 className="text-7xl p-10 pb-20">Welcome</h1>
+          <h1 className="text-7xl p-10 pb-20 text-white">Welcome</h1>
         )}
       </div>
       <div className="flex justify-center">
@@ -69,10 +71,11 @@ const Auth = () => {
           {register ? (
             <div>
               <form
-                className="flex flex-col items-center"
+                className="flex flex-col items-center text-2xl gap-5"
                 onSubmit={submitHandler}
               >
-                <div className="flex flex-col gap-5">
+                <h1>Create an account</h1>
+                <div className="flex flex-col gap-5 text-2xl">
                   <input
                     className="rounded"
                     type="text"
@@ -127,9 +130,10 @@ const Auth = () => {
           ) : (
             <div className="flex flex-col">
               <form
-                className="flex flex-col items-center gap-5"
+                className="flex flex-col items-center text-2xl gap-5"
                 onSubmit={submitHandler}
               >
+                <h1>Please login</h1>
                 <input
                   className="rounded"
                   type="text"

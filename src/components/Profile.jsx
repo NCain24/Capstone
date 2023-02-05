@@ -1,5 +1,6 @@
 import { useState, useContext, useEffect } from 'react';
 import AuthContext from '../store/authContext';
+import { Modal } from 'react-responsive-modal';
 import axios from 'axios';
 
 const Profile = () => {
@@ -15,6 +16,10 @@ const Profile = () => {
   const [profile, setProfile] = useState([]);
   const [profileExists, setProfileExists] = useState(false);
   const [editProfile, setEditProfile] = useState(true);
+  const [open, setOpen] = useState(false);
+
+  const onOpenModal = () => setOpen(true);
+  const onCloseModal = () => setOpen(false);
 
   const handleStartEdit = () => {
     setEditProfile(true);
@@ -128,10 +133,10 @@ const Profile = () => {
 
   console.log(profileExists, profile);
   return (
-    <div>
+    <div className="h-full">
       {editProfile === true && (
         <div>
-          <div className="flex items-center justify-center max-h-full">
+          <div className="flex items-center justify-center">
             <div className="flex justify-center">
               <form
                 className="flex flex-col text-3xl bg-slate-200 border-2 m-20 p-10 rounded text-center"
@@ -238,7 +243,10 @@ const Profile = () => {
           <div>
             <div className="flex gap-40 text-3xl text-white">
               <button onClick={() => handleStartEdit()}>Edit</button>
-              <button onClick={() => deleteProfile(profile.id)}>Delete</button>
+              <button onClick={ () => onOpenModal }>Delete</button>
+              <Modal open={open} onClose={onCloseModal} center>
+                <h2>Test</h2>
+              </Modal>
             </div>
           </div>
         </div>
@@ -248,3 +256,4 @@ const Profile = () => {
 };
 
 export default Profile;
+// deleteProfile(profile.id)

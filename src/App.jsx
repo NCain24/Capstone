@@ -11,8 +11,8 @@ function App() {
   const authCtx = useContext(AuthContext);
 
   return (
-    <div className="bg-[url('/src/images/bg.jpg')] h-screen bg-scroll">
-      {!authCtx.token ? (
+    <div className="h-full bg-cover bg-center">
+      { !authCtx.token ? (
         <Auth />
       ) : (
         <div>
@@ -21,8 +21,8 @@ function App() {
             <Route index path="/home" element={<Home />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/viewprofile/:id" element={<MemberCard />} />
-          </Routes>
-        </div>
+            </Routes>
+          </div>
       )}
     </div>
   );
