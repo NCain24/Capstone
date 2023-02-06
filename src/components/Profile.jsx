@@ -238,7 +238,7 @@ const Profile = () => {
             </h2>
           </div>
           <div>
-            <div className="flex gap-40 text-3xl text-white">
+            <div className="space-x-20 text-white text-3xl">
               <button onClick={() => handleStartEdit()}>Edit</button>
               <button onClick={() => setIsOpen(true) } >Delete</button>
               {isOpen && (<Modal setIsOpen={setIsOpen} deleteProfile={deleteProfile} id={profile.id}>Delete</Modal>)}
