@@ -133,7 +133,7 @@ const Profile = () => {
 
   console.log(profileExists, profile);
   return (
-    <div className="h-full">
+    <div className="lh-full">
       {editProfile === true && (
         <div>
           <div className="flex items-center justify-center">

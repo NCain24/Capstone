@@ -31,11 +31,11 @@ const Member = () => {
 
   return (
 
-    <div className="flex flex-col h-screen flex-wrap flex-auto max-w-screen-2xl overflow-x-hidden">
+    <div className="flex flex-col h-full flex-wrap flex-auto max-w-screen-2xl overflow-y-auto">
       <div className="flex m-5">
         <form className='h-6'  onSubmit={ handleSubmit }>
           <input
-            className="rounded border text-xl border-slate-500 shadow-lg"
+            className="rounded-full text-center border text-xl border-slate-500 shadow-lg"
             onChange={(e) => setSearchTerm(e.target.value)}
             type="text"
             placeholder="Search"
@@ -46,8 +46,9 @@ const Member = () => {
       { !loading ? (
             <ReactLoading type={ 'spin' } color={ '#03fc4e' } height={ 300 } width={ 300 } />
       ) : (
-        <>
-      <div className="flex gap-5 p-10 flex-wrap overflow-hidden overscroll-none">
+          <>
+            
+      <div className="flex gap-5 p-10 flex-wrap overflow-y-auto overscroll-contain">
         {allProfiles
           .filter((member) => {
             return (
@@ -58,7 +59,7 @@ const Member = () => {
           .map((member) => {
             return (
               <NavLink to={`/viewprofile/${member.id}`} key={member.id}>
-                <div className="flex justify-center p-5 bg-slate-300 rounded-lg cursor-pointer object-fill shadow-xl transform hover:scale-110 duration-75">
+                <div className="flex justify-center p-5 bg-slate-300 rounded-full cursor-pointer object-fill shadow-xl transform hover:scale-110 duration-75">
                   <div className="flex items-end text-3xl">
                     {member.firstName} {member.lastName}
                   </div>
