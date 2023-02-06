@@ -1,9 +1,11 @@
 import { useState, useContext } from 'react';
 import AuthContext from '../store/authContext';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const Auth = () => {
   const authCtx = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -31,6 +33,7 @@ const Auth = () => {
             res.data.userId,
             res.data.username
           );
+          navigate('/home');
         })
         .catch((error) => {
           console.log(error);
@@ -44,6 +47,8 @@ const Auth = () => {
         })
         .then((res) => {
           console.log(res.data);
+          console.log('hit', navigate)
+          navigate('/home');
           authCtx.login(
             res.data.token,
             res.data.exp,

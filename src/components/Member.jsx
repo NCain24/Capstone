@@ -31,7 +31,7 @@ const Member = () => {
 
   return (
 
-    <div className="flex flex-col h-full flex-wrap flex-auto max-w-screen-2xl overflow-y-auto">
+    <div className="flex flex-col h-full flex-wrap flex-auto max-w-screen-2xl overflow-auto">
       <div className="flex m-5">
         <form className='h-6'  onSubmit={ handleSubmit }>
           <input
@@ -48,7 +48,7 @@ const Member = () => {
       ) : (
           <>
             
-      <div className="flex gap-5 p-10 flex-wrap overflow-y-auto overscroll-contain">
+      <div className="flex gap-5 p-10 flex-wrap overflow-auto overscroll-contain">
         {allProfiles
           .filter((member) => {
             return (
