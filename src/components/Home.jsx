@@ -2,8 +2,8 @@ import Member from './Member'
 
 const Home = () => {
   return (
-    <div>
-      <div>
+    <div className="overflow-auto">
+      <div className='overflow-auto'>
         <Member />
       </div>
     </div>

@@ -72,7 +72,7 @@ const Auth = () => {
         )}
       </div>
       <div className="flex justify-center">
-        <div className="flex flex-col items-center border w-80 m-10 p-20 bg-slate-200 rounded">
+        <div className="flex flex-col items-center border w-80 m-10 p-20 bg-amber-50 rounded">
           {register ? (
             <div>
               <form
@@ -82,21 +82,21 @@ const Auth = () => {
                 <h1>Create an account</h1>
                 <div className="flex flex-col gap-5 text-2xl">
                   <input
-                    className="rounded"
+                    className="rounded border border-slate-500"
                     type="text"
                     placeholder="First Name"
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
                   />
                   <input
-                    className="rounded"
+                    className="rounded border border-slate-500"
                     type="text"
                     placeholder="Last Name"
                     value={lastName}
                     onChange={(e) => setLastName(e.target.value)}
                   />
                   <input
-                    className="rounded"
+                    className="rounded border border-slate-500"
                     type="email"
                     placeholder="E-mail address"
                     value={email}
@@ -104,14 +104,14 @@ const Auth = () => {
                   />
 
                   <input
-                    className="rounded"
+                    className="rounded border border-slate-500"
                     type="text"
                     placeholder="Username"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                   />
                   <input
-                    className="rounded"
+                    className="rounded border border-slate-500"
                     type="password"
                     placeholder="Password"
                     value={password}
@@ -119,7 +119,7 @@ const Auth = () => {
                   />
                 </div>
                 <div>
-                  <button className=" text-white bg-slate-500 rounded-lg p-3 mt-5 hover:animate-pulse">
+                  <button className=" text-white bg-black rounded-lg p-3 mt-5 hover:animate-pulse">
                     Register and login
                   </button>
                 </div>
@@ -140,20 +140,20 @@ const Auth = () => {
               >
                 <h1>Please login</h1>
                 <input
-                  className="rounded"
+                  className="rounded border border-slate-500"
                   type="text"
                   placeholder="Username"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                 />
                 <input
-                  className=" rounded"
+                  className=" rounded border border-slate-500"
                   type="password"
                   placeholder="Password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
-                <div className=" text-white bg-slate-500 rounded-lg p-3 mt-5 hover:animate-pulse">
+                <div className=" text-white bg-black rounded-lg p-3 mt-5 hover:animate-pulse">
                   <button className="hover:animate-pulse">Login</button>
                 </div>
               </form>

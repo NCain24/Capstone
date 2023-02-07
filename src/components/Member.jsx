@@ -59,7 +59,7 @@ const Member = () => {
           .map((member) => {
             return (
               <NavLink to={`/viewprofile/${member.id}`} key={member.id}>
-                <div className="flex justify-center p-5 bg-slate-300 rounded-full cursor-pointer object-fill shadow-xl transform hover:scale-110 duration-75">
+                <div className="flex justify-center p-5 bg-amber-50 rounded-full cursor-pointer object-fill shadow-xl transform hover:scale-110 duration-75">
                   <div className="flex items-end text-3xl">
                     {member.firstName} {member.lastName}
                   </div>
