@@ -209,27 +209,27 @@ const Profile = () => {
           <h1 className="text-3xl text-white">Your Profile</h1>
           <div className="bg-amber-50 rounded-xl p-10 px-40 shadow-2xl">
             <h4 className="text-center text-2xl text-black">First Name</h4>
-            <h2 className="cursor-pointer text-black transform duration-75 hover:scale-150 text-center">
+            <h2 className="cursor-pointer text-black pb-3 transform duration-75 hover:scale-150 text-center">
               {profile.firstName}
             </h2>
             <h4 className="text-center text-2xl text-black">Last Name</h4>
-            <h2 className="cursor-pointer text-black transform duration-75 hover:scale-150 text-center">
+            <h2 className="cursor-pointer text-black pb-3 transform duration-75 hover:scale-150 text-center">
               {profile.lastName}
             </h2>
             <h4 className="text-center text-2xl text-black">E-Mail</h4>
-            <h2 className="cursor-pointer text-black transform duration-75 hover:scale-150 text-center">
+            <h2 className="cursor-pointer text-black pb-3 transform duration-75 hover:scale-150 text-center">
               {profile.email}
             </h2>
             <h4 className="text-center text-2xl text-black">Phone Number</h4>
-            <h2 className="cursor-pointer text-black transform duration-75 hover:scale-150 text-center">
+            <h2 className="cursor-pointer text-black pb-3 transform duration-75 hover:scale-150 text-center">
               {profile.phoneNumber}
             </h2>
             <h4 className="text-center text-2xl text-black">Address</h4>
-            <h2 className="cursor-pointer text-black transform duration-75 hover:scale-150 text-center">
+            <h2 className="cursor-pointer text-black pb-3 transform duration-75 hover:scale-150 text-center">
               {profile.address}
             </h2>
             <h4 className="text-center text-2xl text-black">Birthday</h4>
-            <h2 className="cursor-pointer text-black transform duration-75 hover:scale-150 text-center">
+            <h2 className="cursor-pointer text-black pb-3 transform duration-75 hover:scale-150 text-center">
               {profile.birthday}
             </h2>
             <h4 className="text-center text-2xl text-black">Occupation</h4>
