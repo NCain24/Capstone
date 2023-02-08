@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+# Family Sharing App
+As a way to stay connected, this app allows all members of the family to keep their information available to everyone else in the family without needing a social media app. It's similar to using a phone book to give someone a call. Users have the power to add what information they would like to share, as well as delete or update any information that changes.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+##Table of Contents
+* [Technologies Used](#technologiesused)
+* [Dependencies Used](#dependenciesused)
+* [How to Use](#use)
 
-### `npm start`
+## <a name='technologiesused'>Technologies Used</a>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* React.js
+* Tailwind CSS
+* Node.js
+* PostgreSQL
+* Bit.io
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## <a name='dependenciesused'>Dependencies Used</a>
 
-### `npm test`
+* Axios
+* Bcrypt.js
+* CORS
+* dotenv
+* Express.js
+* JSON Web Token
+* React Router
+* Sequelize
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## <a name='use'>How to Use</a>
 
-### `npm run build`
+### Login or Register
+Create an account on the login page to gain access to the server. User will input their first name, last name, e-mail address, what they would like their unique username to be, and a password. Once all fields are filled out, click the "Register and login" button.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Create User Profile
+Click on the "Profile" link in the upper-right portion of the screen. This will direct the user to their profile page.
+From there, user can fill in any field that they wish to, while leaving the rest blank if they choose. Once all relevant information is filled in, user can then click the "Submit" button at the bottom of the form. This will populate the database with the information they provided.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Edit User Profile
+If any of the user's information changes at any time, or they wish to add more information, they can do so by clicking the "Edit" button just under the form on the profile page. This will allow their profile form to be editable. After the user is finished with making updates, they can click the "Update" button at the bottom of the form to send the new data to the database.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+### Delete User Profile
+If at any time the user decides they no longer want to have a profile on the application, they can remove it entirely by clicking the "Delete" button just under the profile form. They will be given a confirmation that they want to delete the profile, and upon clicking "Delete" inside the modal, the profile will be removed from the database.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Searching for Members
+Clicking the "Home" link in the upper-right portion of the screen will bring the user to the main page of the application, where they can search for other family members. The user can either scroll through the list of family members that have an existing profile, or they can search for specific family members by name.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+### Member information
+Once the user has found the family member they are looking for, they can click on their tab to bring up the field displaying the information that the family member filled in when they created their profile. To go back to the home page to search for another family member, simply click the "Home" link in the upper-right portion of the screen again to be routed back to the home page.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Logout
+Once the user is finished searching, they can log out of the system. They will be able to log back in on the login page by entering their username and password they created when first registering for an account.
