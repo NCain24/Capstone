@@ -3,7 +3,7 @@ As a way to stay connected, this app allows all members of the family to keep th
 
 ![Home](./src/images/HomeAfterProfile.png)
 
-##Table of Contents
+## Table of Contents
 * [Technologies Used](#technologiesused)
 * [Dependencies Used](#dependenciesused)
 * [How to Use](#use)
